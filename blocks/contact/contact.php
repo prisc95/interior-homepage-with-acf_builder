@@ -46,20 +46,24 @@ $style  = implode( '; ', $styles );
                     <h2 class="contact__title"><?php echo esc_html( $title ); ?></h2>
                 <?php endif; ?>
 
-                  <?php if ( ! empty( $sub_title ) ) : ?>
-                    <h2 class="contact__sub_title"><?php echo esc_html( $sub_title ); ?></h2>
-                <?php endif; ?>
-
                 <?php if ( $icons ) : ?>
-                
+                    <div class="icon-wrapper">
                     <?php foreach ( $icons as $icon ) : ?>
                         <?php if ( ! empty( $icon['link'] ) && ! empty( $icon['icon'] ) ) : ?>
                             <a href="<?php echo esc_url( $icon['link'] ); ?>" target="_blank" rel="noopener">
-                        <?php echo $icon['icon']; ?>    
+                             <span style="color: <?php echo esc_attr( $icon['icon_color'] ); ?>;">
+                            <?php echo $icon['icon']; ?>    
+                            </span>
                             </a>
                         <?php endif; ?>
                     <?php endforeach; ?>
-               
+                    </div>
+                    
+        
+                <?php endif; ?>
+
+                                  <?php if ( ! empty( $sub_title ) ) : ?>
+                    <p class="contact__sub_title"><?php echo esc_html( $sub_title ); ?></p>
                 <?php endif; ?>
        
     </div>
