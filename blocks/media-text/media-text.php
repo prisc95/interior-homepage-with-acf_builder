@@ -53,11 +53,11 @@ $style  = implode( '; ', $styles );
 
         <div class="right">
                 <?php if ( ! empty( $header ) ) : ?>
-                    <h1 class="media-text__header"><?php echo esc_html( $header ); ?></h1>
+                    <h2 class="media-text__header"><?php echo esc_html( $header ); ?></h2>
                 <?php endif; ?>
 
                   <?php if ( ! empty( $paragraph ) ) : ?>
-                    <h2 class="media-text__paragraph"><?php echo esc_html( $paragraph ); ?></h2>
+                    <p class="media-text__paragraph"><?php echo esc_html( $paragraph ); ?></p>
                 <?php endif; ?>
 
                 <?php if ( $icons ) : ?>
@@ -78,17 +78,17 @@ $style  = implode( '; ', $styles );
             <?php endif; ?>
 
                  <?php if ( ! empty( $title ) ) : ?>
-                    <h1 class="media-text__title"><?php echo esc_html( $title ); ?></h1>
+                    <h2 class="media-text__title"><?php echo esc_html( $title ); ?></h2>
                 <?php endif; ?>
 
    
                 <div class="contact-wrapper">
                     <?php if ( ! empty( $email ) ) : ?>
-                    <h2 class="media-text__email"><span class="email-tag">Email:&nbsp;&nbsp;</span><?php echo esc_html( $email ); ?></h2>
+                    <p class="media-text__email"><span class="email-tag">Email:&nbsp;&nbsp;</span><?php echo esc_html( $email ); ?></p>
                 <?php endif; ?>
 
                    <?php if ( ! empty( $phone ) ) : ?>
-                    <h2 class="media-text__phone"><span class="phone-tag">Telefoonnummer:&nbsp;&nbsp;</span><?php echo esc_html( $phone ); ?></h2>
+                    <p class="media-text__phone"><span class="phone-tag">Telefoonnummer:&nbsp;&nbsp;</span><?php echo esc_html( $phone ); ?></p>
                 <?php endif; ?>
                 </div>
                    
