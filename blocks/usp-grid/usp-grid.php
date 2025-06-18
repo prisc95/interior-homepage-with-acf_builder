@@ -39,47 +39,29 @@ $styles = array( 'background-color: ' . $background_color, 'color: ' . $text_col
 $style  = implode( '; ', $styles );
 ?>
 
-<section <?php echo esc_attr( $anchor ); ?>class="<?php echo esc_attr( $class_name ); ?>" style="<?php echo esc_attr( $style ); ?>">
-   
+<section <?php echo esc_attr( $anchor ); ?> class="<?php echo esc_attr( $class_name ); ?>" style="<?php echo esc_attr( $style ); ?>">
+    <div class="container">
+        <?php foreach ( $grids as $grid ) : ?>
+            <div class="usp-grid__inputs">
+                <!-- Controleren of er een icoon is -->
+                <?php if ( ! empty( $grid['icon'] ) ) : ?>
+                    <span style="color: <?php echo esc_attr( $grid['icon_color'] ); ?>;">
+                        <?php echo $grid['icon']; ?>
+                    </span>
+                <?php endif; ?>
 
-<div class="container">
-        <div class="top">
-            <?php if ( ! empty( $pre_title ) ) : ?>
-                    <h2 class="usp-grid__pre-title"><?php echo esc_html( $pre_title ); ?></h2>
-            <?php endif; ?>
-
-              <?php if ( ! empty( $title ) ) : ?>
-                    <h1 class="usp-grid__title"><?php echo esc_html( $title ); ?></h1>
-            <?php endif; ?>
-        </div>
-                <div class="bottom">
-                    <?php foreach ( $grids as $grid ) : ?>
-                        <div class="usp-grid__inputs">
-                            <?php if ( ! empty( $grid['icon'] ) ) : ?>
-    <?php echo $grid['icon']; ?>
-<?php endif; ?>
-
-
-
+                <!-- Controleren of er grid_inputs zijn -->
                 <?php if ( ! empty( $grid['grid_inputs'] ) ) : ?>
                     <?php foreach ( $grid['grid_inputs'] as $input ) : ?>
-                        <?php if ( ! empty( $input['input_1'] ) ) : ?>
-                            <h2 class="usp-grid__input-1"><?php echo esc_html( $input['input_1'] ); ?></h2>
-                        <?php endif; ?>
-
-                        <?php if ( ! empty( $input['input_2'] ) ) : ?>
-                            <p class="usp-grid__input-2"><?php echo esc_html( $input['input_2'] ); ?></p>
-                        <?php endif; ?>
-
-                        <?php if ( ! empty( $input['input_3'] ) ) : ?>
-                            <p class="usp-grid__input-3"><?php echo esc_html( $input['input_3'] ); ?></p>
-                        <?php endif; ?>
-
+                        <!-- Dynamisch alle input-velden tonen -->
+                        <?php foreach ( $input as $key => $value ) : ?>
+                            <?php if ( ! empty( $value ) ) : ?>
+                                <p class="usp-grid__<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $value ); ?></p>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
-    </div>
-
     </div>
 </section>

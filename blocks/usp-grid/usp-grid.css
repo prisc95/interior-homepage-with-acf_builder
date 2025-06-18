@@ -1,16 +1,31 @@
 section.usp-grid {
   .container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 5rem;
+    padding-bottom: 5rem;
 
-    .bottom {
+    .usp-grid__inputs {
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10rem;
+      background-color: #202020;
+      border-radius: 10%;
+      width: 22%;
+      padding: 3.5rem 0;
+
+      i {
+        font-size: var(--text-xl);
+        padding-bottom: 2rem;
+      }
+
+      p {
+        padding: 0.2rem 0;
+      }
     }
   }
 }

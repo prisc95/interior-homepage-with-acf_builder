@@ -5,15 +5,17 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 $uspGrid = new FieldsBuilder('usp_grid');
 
 $uspGrid
-    ->addText('pre_title', ['label' => 'Voortitel'])
-    ->addText('title', ['label' => 'Titel'])
-    ->addColorPicker('background_color', ['label' => 'Achtergrondkleur'])
-    ->addColorPicker('text_color', ['label' => 'Tekstkleur'])
+    ->addColorPicker('background_color', [
+        'label' => 'Achtergrondkleur',
+        'default_value' => '#121212',])
+    ->addColorPicker('text_color', [
+        'label' => 'Tekstkleur',
+        'default_value' => '#FFF',
+        ])
 
     ->addRepeater('grids', [
         'label' => 'Tabellen',
         'min' => 1,
-        'max' => 3,
         'layout' => 'table',
         'button_label' => 'Voeg icoon toe',
     ])
@@ -22,6 +24,12 @@ $uspGrid
             'label' => 'Icoon',
             'return_format' => 'class',
         ])
+
+     ->addField('icon_color', 'color_picker', [
+        'label' => 'Kleur van het icoon',
+        'instructions' => 'Selecteer de gewenste kleur voor dit icoon',
+        'default_value' => '#c03740',
+    ])
     
         ->addRepeater('grid_inputs',[
             'label' => 'Input',
@@ -30,21 +38,12 @@ $uspGrid
             'button_label' => 'Voeg input toe',
         ])
 
-            ->addField('input_1', 'text', [
+            ->addField('input', 'text', [
             'label' => 'Tekstveld 1',
             'placeholder' => 'Vul tekst in...',
+            'maxlength' => '25',
             ])
 
-            ->addField('input_2', 'text', [
-            'label' => 'Tekstveld 2',
-            'placeholder' => 'Vul tekst in...',
-            ])
-
-            ->addField('input_3', 'text', [
-            'label' => 'Tekstveld 3',
-            'placeholder' => 'Vul tekst in...',
-            ])
-            
 
         
           ->endRepeater()
