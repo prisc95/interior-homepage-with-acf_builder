@@ -195,10 +195,50 @@ collect(['setup', 'filters'])
     }
 });
 
-function enqueue_fontawesome() {
-    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+// function enqueue_fontawesome() {
+//     wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_fontawesome');
+
+
+/**
+ * Enqueue global frontend styles
+ */
+function theme_enqueue_styles() {
+    // App CSS (Tailwind + _variables.css)
+    wp_enqueue_style(
+        'theme-global-style',
+        get_template_directory_uri() . '/resources/styles/app.css',
+        array(),
+        filemtime(get_template_directory() . '/resources/styles/app.css')
+    );
+
+    // Font Awesome (laad alleen op frontend)
+    wp_enqueue_style(
+        'fontawesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+        array(),
+        '6.4.0'
+    );
 }
-add_action('wp_enqueue_scripts', 'enqueue_fontawesome');
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
+/**
+ * Enqueue styles for Gutenberg editor
+ */
+function theme_enqueue_editor_styles() {
+    // App CSS ook in de editor
+    add_editor_style('resources/styles/app.css');
 
+    // Als je Font Awesome ook in de editor wil (optioneel):
+    add_action('enqueue_block_editor_assets', function () {
+        wp_enqueue_style(
+            'fontawesome-editor',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+            array(),
+            '6.4.0'
+        );
+    });
+}
+add_action('admin_init', 'theme_enqueue_editor_styles');
 

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --text-xs: 0.75rem;
+  --text-sm: 0.9rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-xxl: 2.5rem;
+  --text-xxxl: 3rem;
+  --text-xxxxl: 5rem;
+
+  --font-w100: 100;
+  --font-w200: 200;
+  --font-w300: 300;
+  --font-w400: 400;
+  --font-w500: 500;
+  --font-w600: 600;
+  --font-w700: 700;
+  --font-w800: 800;
+  --font-w900: 900;
+
+  --font-xl: 'Raleway', sans-serif;
+  --font-md: 'Raleway', sans-serif;
+  --font-color: #fff;
+}
