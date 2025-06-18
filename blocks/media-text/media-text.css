@@ -1,11 +1,5 @@
 section.media-text {
   .container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
     .left {
       display: flex;
       justify-content: center;
@@ -14,10 +8,11 @@ section.media-text {
 
       .img-wrapper {
         width: 50%;
-        height: auto;
 
         img {
+          padding: 1.5rem 0;
           object-fit: cover;
+          border-radius: 10%;
         }
       }
     }
@@ -26,6 +21,41 @@ section.media-text {
       display: flex;
       flex-basis: 50%;
       flex-direction: column;
+
+      .media-text__header {
+        font-weight: var(--font-w800);
+      }
+
+      h1 {
+        padding-bottom: 1rem;
+      }
+
+      .icon-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem 0;
+
+        i {
+          font-size: var(--text-xl);
+          background-color: #202020;
+          border-radius: 50%;
+          padding: 0.5rem;
+        }
+      }
+
+      .media-text__title {
+        padding-top: 0.5rem;
+      }
+
+      .contact-wrapper {
+        h2 {
+          width: 50%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+      }
     }
   }
 }

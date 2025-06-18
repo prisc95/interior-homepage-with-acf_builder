@@ -6,15 +6,15 @@
  */
 
 // Load values and assign defaults.
-$header            = get_field( 'header' );
-$paragraph       = get_field( 'paragraph' );
-$image             = get_field( 'image' );
-$background_color  = get_field( 'background_color' ); // ACF's color picker.
-$text_color        = get_field( 'text_color' ); // ACF's color picker.
-$icons              = get_field('icons');
-$title              = get_field('title');
-$email          =get_field('email');
-$phone              =get_field('phone');
+$header             =   get_field( 'header' );
+$paragraph          =   get_field( 'paragraph' );
+$image              =   get_field( 'image' );
+$background_color   =   get_field( 'background_color' ); // ACF's color picker.
+$text_color         =   get_field( 'text_color' ); // ACF's color picker.
+$icons              =   get_field('icons');
+$title              =   get_field('title');
+$email              =   get_field('email');
+$phone              =   get_field('phone');
 
 
 // Support custom "anchor" values.
@@ -53,7 +53,7 @@ $style  = implode( '; ', $styles );
 
         <div class="right">
                 <?php if ( ! empty( $header ) ) : ?>
-                    <h2 class="media-text__header"><?php echo esc_html( $header ); ?></h2>
+                    <h1 class="media-text__header"><?php echo esc_html( $header ); ?></h1>
                 <?php endif; ?>
 
                   <?php if ( ! empty( $paragraph ) ) : ?>
@@ -62,15 +62,19 @@ $style  = implode( '; ', $styles );
 
                 <?php if ( $icons ) : ?>
                 
-                    <?php foreach ( $icons as $icon ) : ?>
+                <div class="icon-wrapper">
+                              <?php foreach ( $icons as $icon ) : ?>
                         <?php if ( ! empty( $icon['link'] ) && ! empty( $icon['icon'] ) ) : ?>
                 <a href="<?php echo esc_url( $icon['link'] ); ?>" target="_blank" rel="noopener">
+                    <span style="color: <?php echo esc_attr( $icon['icon_color'] ); ?>;">
                 <?php echo $icon['icon']; ?>    
+                    </span>
                
                 </a>
             <?php endif; ?>
                     <?php endforeach; ?>
-               
+                </div>
+          
             <?php endif; ?>
 
                  <?php if ( ! empty( $title ) ) : ?>
@@ -78,14 +82,16 @@ $style  = implode( '; ', $styles );
                 <?php endif; ?>
 
    
-                
-                   <?php if ( ! empty( $email ) ) : ?>
-                    <h2 class="media-text__email"><span class="email-tag">Email:</span><?php echo esc_html( $email ); ?></h2>
+                <div class="contact-wrapper">
+                    <?php if ( ! empty( $email ) ) : ?>
+                    <h2 class="media-text__email"><span class="email-tag">Email:&nbsp;&nbsp;</span><?php echo esc_html( $email ); ?></h2>
                 <?php endif; ?>
 
                    <?php if ( ! empty( $phone ) ) : ?>
-                    <h2 class="media-text__phone"><span class="email-tag">Telefoonnummer:</span><?php echo esc_html( $phone ); ?></h2>
+                    <h2 class="media-text__phone"><span class="phone-tag">Telefoonnummer:&nbsp;&nbsp;</span><?php echo esc_html( $phone ); ?></h2>
                 <?php endif; ?>
+                </div>
+                   
         </div>
        
     </div>

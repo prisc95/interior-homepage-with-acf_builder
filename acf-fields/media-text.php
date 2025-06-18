@@ -9,8 +9,13 @@ $mediaText
     ->addText('header', ['label' => 'Header'])
     ->addTextarea('paragraph', ['label' => 'Paragraaf'])
     ->addImage('image', ['label' => 'Afbeelding'])
-    ->addColorPicker('background_color', ['label' => 'Achtergrondkleur'])
-    ->addColorPicker('text_color', ['label' => 'Tekstkleur'])
+    ->addColorPicker('background_color', [
+        'label' => 'Achtergrondkleur',
+        'default_value' => '#121212',])
+    ->addColorPicker('text_color', [
+        'label' => 'Tekstkleur',
+        'default_value' => '#FFF',
+        ])
     ->addRepeater('icons', [
         'label' => 'Iconen',
         'min' => 1,
@@ -22,6 +27,12 @@ $mediaText
             'label' => 'Icoon',
             'return_format' => 'class',
         ])
+
+        ->addField('icon_color', 'color_picker', [
+        'label' => 'Kleur van het icoon',
+        'instructions' => 'Selecteer de gewenste kleur voor dit icoon',
+        'default_value' => '#c03740',
+    ])
 
          ->addField('link', 'url', [
         'label' => 'Link naar social media',
