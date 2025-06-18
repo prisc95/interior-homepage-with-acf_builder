@@ -1,0 +1,31 @@
+section.media-text {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 50%;
+
+      .img-wrapper {
+        width: 50%;
+        height: auto;
+
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-basis: 50%;
+      flex-direction: column;
+    }
+  }
+}
