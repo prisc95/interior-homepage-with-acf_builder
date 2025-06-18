@@ -18,10 +18,13 @@ section {
     align-items: center;
 
     h1 {
+      font-size: var(--text-xxxl);
+    }
+
+    h2 {
       font-size: var(--text-xl);
     }
 
-    h2,
     h3,
     p {
       font-size: var(--text-md);

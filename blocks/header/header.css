@@ -1,0 +1,18 @@
+section.header {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 5rem 0;
+
+    .header__pre_title {
+      text-transform: uppercase;
+    }
+
+    .header__title {
+      font-weight: var(--font-w900);
+    }
+  }
+}
