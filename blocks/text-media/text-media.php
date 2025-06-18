@@ -13,6 +13,7 @@ $link               = get_field('link');
 $image             = get_field( 'image' );
 $background_color  = get_field( 'background_color' ); // ACF's color picker.
 $text_color        = get_field( 'text_color' ); // ACF's color picker.
+$link_color         = get_field('link_color', $link['ID']);
 
 
 // Support custom "anchor" values.
@@ -45,26 +46,28 @@ $style  = implode( '; ', $styles );
 
         <div class="left">
              <?php if ( ! empty( $pre_title ) ) : ?>
-                    <h2 class="text-media__pre_title"><?php echo esc_html( $pre_title ); ?></h2>
+                    <p class="text-media__pre_title"><?php echo esc_html( $pre_title ); ?></p>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $title ) ) : ?>
-                    <h1 class="text-media__title"><?php echo esc_html( $title ); ?></h1>
+                    <h2 class="text-media__title"><?php echo esc_html( $title ); ?></h2>
                 <?php endif; ?>
 
                   <?php if ( ! empty( $paragraph ) ) : ?>
-                    <h2 class="text-media__paragraph"><?php echo esc_html( $paragraph ); ?></h2>
+                    <p class="text-media__paragraph"><?php echo esc_html( $paragraph ); ?></p>
                 <?php endif; ?>
 
-                <?php if ( ! empty( $link ) && is_array( $link ) ) : ?>
-                    <a class="text-media__link" href="<?php echo esc_url( $link['url'] ); ?>"<?php if ( ! empty( $link['target'] ) ) : ?> target="<?php echo esc_attr( $link['target'] ); ?>"<?php endif; ?>>
-                        <?php echo esc_html( $link['title'] ); ?>
-                    </a>
-                <?php endif; ?>
+                  <?php if ( ! empty( $link ) && is_array( $link ) ) : ?>
+                <a class="text-media__link" href="<?php echo esc_url( $link['url'] ); ?>"
+                style="color: <?php echo esc_attr( $link_color ); ?>;" 
+                <?php if ( ! empty( $link['target'] ) ) : ?> target="<?php echo esc_attr( $link['target'] ); ?>"<?php endif; ?>>
+        <?php echo esc_html( $link['title'] ); ?>
+    </a>
+<?php endif; ?>
 
 
         </div>
-
+       
                     <?php if ( $image ) : ?>
                 <div class="right">
                     <div class="img-wrapper">
@@ -72,6 +75,5 @@ $style  = implode( '; ', $styles );
                     </div>
                 </div>
             <?php endif; ?>
-       
     </div>
 </section>
